@@ -180,6 +180,28 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\My.RolePermission.BLL\My.RolePermission.BLL.csproj">
+      <Project>{8e631da0-1477-493d-a522-bef03bbf69df}</Project>
+      <Name>My.RolePermission.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\My.RolePermission.Common\My.RolePermission.Common.csproj">
+      <Project>{042f5fe2-9300-490c-854e-252ecd8e996f}</Project>
+      <Name>My.RolePermission.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\My.RolePermission.IBLL\My.RolePermission.IBLL.csproj">
+      <Project>{34809589-124d-46ee-a611-0fa4c405bb34}</Project>
+      <Name>My.RolePermission.IBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\My.RolePermission.Ioc\My.RolePermission.Ioc.csproj">
+      <Project>{fce26d65-016f-402b-b0f8-7e6e360f7df0}</Project>
+      <Name>My.RolePermission.Ioc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\My.RolePermission.Model\My.RolePermission.Model.csproj">
+      <Project>{34531e76-7218-48ba-a6bd-be417c9000dc}</Project>
+      <Name>My.RolePermission.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
