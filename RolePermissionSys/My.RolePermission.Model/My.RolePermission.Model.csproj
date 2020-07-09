@@ -31,8 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,14 +48,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolePermission.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RolePermission.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolePermission.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RolePermission.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolePermission.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RolePermission.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchParam\OrderByExt.cs" />
+    <Compile Include="SMFIELD.cs">
+      <DependentUpon>RolePermission.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMFUNCTB.cs">
+      <DependentUpon>RolePermission.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMLOG.cs">
+      <DependentUpon>RolePermission.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMMENUROLEFUNCTB.cs">
+      <DependentUpon>RolePermission.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMMENUTB.cs">
+      <DependentUpon>RolePermission.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMROLETB.cs">
+      <DependentUpon>RolePermission.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SMUSERTB.cs">
+      <DependentUpon>RolePermission.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\My.RolePermission.Common\My.RolePermission.Common.csproj">
       <Project>{042f5fe2-9300-490c-854e-252ecd8e996f}</Project>
       <Name>My.RolePermission.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="RolePermission.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RolePermission.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="RolePermission.edmx.diagram">
+      <DependentUpon>RolePermission.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RolePermission.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RolePermission.Context.cs</LastGenOutput>
+      <DependentUpon>RolePermission.edmx</DependentUpon>
+    </Content>
+    <Content Include="RolePermission.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RolePermission.edmx</DependentUpon>
+      <LastGenOutput>RolePermission.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

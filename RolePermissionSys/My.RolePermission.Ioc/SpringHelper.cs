@@ -8,6 +8,9 @@ using Spring.Context.Support;
 
 namespace My.RolePermission.Ioc
 {
+    /// <summary>
+    /// 这里选用的Ioc框架是Spring.Net
+    /// </summary>
     public class SpringHelper
     {
         #region Spring容器上下文+IApplicationContext SpringContext
