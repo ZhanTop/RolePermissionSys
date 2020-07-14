@@ -47,6 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="DAL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DalFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DalFactory.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbContextFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +73,19 @@
       <Project>{34531e76-7218-48ba-a6bd-be417c9000dc}</Project>
       <Name>My.RolePermission.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DAL.cs</LastGenOutput>
+    </Content>
+    <Content Include="DalFactory.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DalFactory.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

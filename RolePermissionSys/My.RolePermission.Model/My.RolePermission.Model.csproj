@@ -86,6 +86,7 @@
     <Compile Include="SMUSERTB.cs">
       <DependentUpon>RolePermission.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\LogOnModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\My.RolePermission.Common\My.RolePermission.Common.csproj">

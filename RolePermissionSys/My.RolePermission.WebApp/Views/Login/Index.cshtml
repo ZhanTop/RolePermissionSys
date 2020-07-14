@@ -1,0 +1,54 @@
+﻿@model My.RolePermission.Model.ViewModel.LogOnModel
+@{ 
+    ViewBag.Title = "登录 - 通用角色权限管理系统";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <title>@ViewBag.Title</title>  
+        @Styles.Render("~/Content/Login/css") 
+        <script type="text/javascript">
+            function RefreshValidateCode(obj) {
+                //因为请求的url地址不变，浏览器就会认为是同一请求，会直接从浏览器读取缓存，所以此处给请求加了随机数
+                obj.src = "/Login/ShowValideCode/" + Math.floor(Math.random()*1000);
+            }
+        </script>
+    </head>
+<body>
+    <div class="signin">
+        <div class="singin-head">
+            <img src="~/Content/image/zhan.jpg" width="145" height="147"class="img-circle"/>
+        </div>
+        <form class="form-signin" role="form"method="post">
+            @Html.AntiForgeryToken()
+            @Html.TextBoxFor(m => m.PersonName,new { @type="text",@class="form-control",@placeholder="用户名",@required=true,@autofocus=true, @autocomplete ="off"})
+            @Html.PasswordFor(m=>m.PassWord,new { @class="form-control",@placeholder="密码",@required=true})
+
+            <div class="form-group">
+                <div class="col-sm-10" style="padding-left:0px;">
+                    <input type="code" name="ValidateCode" autocomplete="off" class="form-control"placeholder="验证码"required aria-describedby="inputGroupSuccess1Status"/>
+                </div>
+                <div class="col-sm-2" style="padding-left:0px;">
+                    <img id="imgCode" alt="验证码" title="刷新验证码"onclick="RefreshValidateCode(this)"style="cursor:pointer;width:50px;height:45px;"src="/Login/ShowValideCode"/>
+                </div>
+            </div>
+            <button class="btn btn-lg btn-warning btn-block" type="submit">登录</button>
+            <label class="checkbox">
+                @Html.CheckBoxFor(m=>m.RememberMe,"记住我")
+                @Html.LabelFor(m=>m.RememberMe,new { @id="rmbm"})
+                <span id="errorMsg" style="font-size:14px;color:red;">
+                    @Html.ValidationMessage("Error_PersonLogin")
+                </span>
+            </label>
+        </form> 
+    </div> 
+    <div style="text-align:center;margin-top:43%;">
+        <p>技术支持：朱展<a href="https://www.zhantop.com" target="_blank">我的博客</a></p>
+    </div>
+</body>
+</html>
+

@@ -25,6 +25,11 @@ namespace My.RolePermission.WebApp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            //Add 自定义压缩合并
+            bundles.Add(new StyleBundle("~/Content/Login/css").Include("~/Content/bootstrap.min.css", "~/Content/css/sign.css"));
+
+            //默认情况下，bundle是会对js和css文件进行打包的，但此属性可显示设置为打包
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
